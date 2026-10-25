@@ -1,21 +1,21 @@
-// Abstract parent class
-abstract class Vehicle {
+// Interface
+interface Vehicle {
+    void start();
+}
 
-    // Abstract method (no body)
-    abstract void move();
-
-    // Normal method (has a body)
-    void stop() {
-        System.out.println("Vehicle stopped");
+// First class
+class Car implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car starts with a key");
     }
 }
 
-// Child class
-class Car extends Vehicle {
-
+// Second class
+class Bike implements Vehicle {
     @Override
-    void move() {
-        System.out.println("Car is driving");
+    public void start() {
+        System.out.println("Bike starts with a button");
     }
 }
 
@@ -23,10 +23,10 @@ class Car extends Vehicle {
 public class Main {
     public static void main(String[] args) {
 
-        // Vehicle v = new Vehicle(); // ERROR
-
         Car c = new Car();
-        c.move();
-        c.stop();
+        c.start();
+
+        Bike b = new Bike();
+        b.start();
     }
 }
