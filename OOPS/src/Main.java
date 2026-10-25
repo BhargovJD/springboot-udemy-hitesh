@@ -1,32 +1,12 @@
-// Interface
-interface Vehicle {
-    void start();
+class Person {
+    static String school = "ABC School";
 }
 
-// First class
-class Car implements Vehicle {
-    @Override
-    public void start() {
-        System.out.println("Car starts with a key");
-    }
-}
-
-// Second class
-class Bike implements Vehicle {
-    @Override
-    public void start() {
-        System.out.println("Bike starts with a button");
-    }
-}
-
-// Main class
 public class Main {
     public static void main(String[] args) {
-
-        Car c = new Car();
-        c.start();
-
-        Bike b = new Bike();
-        b.start();
+        System.out.println(Person.school);
     }
 }
+
+//Because school is static, it belongs to the Student class.
+//You can access it using the class name without creating an object.
