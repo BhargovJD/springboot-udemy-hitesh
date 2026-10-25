@@ -1,6 +1,3 @@
-import jdk.jshell.PersistentSnippet;
-
-
 class Student{
     String name;
 
