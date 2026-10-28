@@ -1,18 +1,21 @@
 
 package com.example.springbootdemo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @SpringBootApplication
 public class SpringbootdemoApplication implements CommandLineRunner {
 
-    NotificationService notificationService;
 
-    public SpringbootdemoApplication(NotificationService notificationService) {
+    @Autowired
+    Map<String, NotificationService> notificationServiceMap = new HashMap<>();
 
-        this.notificationService = notificationService;
-    }
+  
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootdemoApplication.class, args);
@@ -21,7 +24,9 @@ public class SpringbootdemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // notificationService = new WhatsAppService();
-        notificationService.send("Stream is live");
+        // notificationService.send("Stream is live");
+        for (var notificationService : notificationServiceMap.entrySet()) {
+            notificationService.getValue().send("Stream is live");
     }
 
-}
+}}
