@@ -23,7 +23,10 @@ public class SpringbootdemoApplication implements CommandLineRunner {
 
     // Asks Spring to inject the NotificationService object automatically
     @Autowired
-    NotificationService notificationService;
+    NotificationService notificationService1;
+
+    @Autowired 
+    NotificationService notificationService2;
 
     // The main() method is the starting point of the Java application
     public static void main(String[] args) {
@@ -36,7 +39,7 @@ public class SpringbootdemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        // Calls the send() method of NotificationService
-        notificationService.send();
+       System.out.println(notificationService1.hashCode());
+       System.out.println(notificationService2.hashCode());
     }
 }
