@@ -2,6 +2,7 @@
 package com.example.springbootdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +12,8 @@ public class SpringbootdemoApplication implements CommandLineRunner {
 
     NotificationService notificationService;
 
-    public SpringbootdemoApplication(NotificationService notificationService) {
+    public SpringbootdemoApplication(@Qualifier("telegram") NotificationService notificationService) {
+
         this.notificationService = notificationService;
     }
 
