@@ -9,8 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringbootdemoApplication implements CommandLineRunner {
 
-    @Autowired
     NotificationService notificationService;
+
+    public SpringbootdemoApplication(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootdemoApplication.class, args);
